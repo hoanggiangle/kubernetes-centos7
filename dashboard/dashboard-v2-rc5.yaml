@@ -37,22 +37,26 @@ metadata:
   name: kubernetes-dashboard
   namespace: kubernetes-dashboard
 spec:
+    # Đổi kiểu sang NodePort
+  type: NodePort
   ports:
     - port: 443
       targetPort: 8443
+      # Chọn cổng truy cập qua Node là 3100
+      nodePort: 31000
   selector:
     k8s-app: kubernetes-dashboard
 
 ---
 
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    k8s-app: kubernetes-dashboard
-  name: kubernetes-dashboard-certs
-  namespace: kubernetes-dashboard
-type: Opaque
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   labels:
+#     k8s-app: kubernetes-dashboard
+#   name: kubernetes-dashboard-certs
+#   namespace: kubernetes-dashboard
+# type: Opaque
 
 ---
 
