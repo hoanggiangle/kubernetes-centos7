@@ -1,0 +1,10 @@
+Hãy tạo ra một thư mục đặt tên kubernetes-centos7 để chứa các file cấu hình Vagrant.
+
+- Tại thư mục kubernetes-centos7/master/ 
+  `vagrant up
+  `
+
+
+1. Thiết lập quyền file:
+chmode +x install-docker-kube.sh
+
