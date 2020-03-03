@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: s
+  name: dsapp
 spec:
   selector:
     matchLabels:
@@ -21,3 +21,4 @@ spec:
         ports:
         - containerPort: 80
 
+        
