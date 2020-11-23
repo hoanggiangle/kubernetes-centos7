@@ -15,7 +15,6 @@ mkdir ~/Projects/Material
 brew tap homebrew/bundle
 brew tap homebrew/core
 brew tap caskroom/fonts
-brew tap matteocrippa/ibeacon
 
 # Update
 brew update
@@ -39,21 +38,16 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # Zsh
 brew install zsh zsh-completions
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 brew install zsh-autosuggestions
-
-# install zsh spaceship
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # Setup ZSHRC
 echo "export PATH=\$HOME/bin:/usr/local/bin:\$PATH" > ~/.zshrc
 echo "export PATH=\$HOME/.fastlane/bin:\$PATH" >> ~/.zshrc
-echo "export PATH=/Users/matteocrippa/Library/Android/sdk/platform-tools:\$PATH" >> ~/.zshrc
-echo "export PATH=/Users/matteocrippa/Library/Android/sdk:\$PATH" >> ~/.zshrc
+echo "export PATH=/Users/gianglh/Library/Android/sdk/platform-tools:\$PATH" >> ~/.zshrc
+echo "export PATH=/Users/gianglh/Library/Android/sdk:\$PATH" >> ~/.zshrc
 echo "export ANDROID_SDK_ROOT=/usr/local/share/android-sdk"
-echo "export ZSH=/Users/matteocrippa/.oh-my-zsh" >> ~/.zshrc
-echo "ZSH_THEME=\"spaceship\"" >> ~/.zshrc
+echo "export ZSH=/Users/gianglh/.oh-my-zsh" >> ~/.zshrc
+echo "ZSH_THEME=\"robbyrussell\"" >> ~/.zshrc
 echo "plugins=(git colored-man colorize github virtualenv brew osx zsh-syntax-highlighting)" >> ~/.zshrc
 echo "fpath=(/usr/local/share/zsh-completions \$fpath)" >> ~/.zshrc
 echo "source \$ZSH/oh-my-zsh.sh" >> ~/.zshrc
@@ -65,7 +59,7 @@ echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/
 brew cask install android-sdk
 brew cask install android-file-transfer
 brew cask install caffeine
-brew cask install charles
+brew cask install charles #key TEAM MESMERiZE - FC91D362FB19D6E6CF
 brew cask install google-chrome
 brew cask install cleanmymac
 brew cask install clipy
@@ -82,34 +76,14 @@ brew cask install paw
 brew cask install sourcetree
 brew cask install tunnelblick
 brew cask install the-unarchiver
-brew cask install vscodium
-brew cask install homebrew/cask-drivers/luna-display
 brew cask install brooklyn
 brew cask install spectacle
 brew cask install google-backup-and-sync
 brew cask install jetbrains-toolbox
 brew cask install kitematic
 
-# Install mas
-brew install mas
-
 # Cleanup
 brew cleanup
-
-# Download AppStore apps
-mas install 497799835
-mas install 409183694
-mas install 409201541
-mas install 409203825
-mas install 407963104
-mas install 1063996724
-mas install 1007457278
-mas install 476533227
-mas install 824171161
-mas install 1178548760
-mas install 1063996724
-mas install 1176895641
-mas install 732710998
 
 # Setup XCode theme
 mkdir -p ~/Library/Developer/Xcode/UserData/FontAndColorThemes/

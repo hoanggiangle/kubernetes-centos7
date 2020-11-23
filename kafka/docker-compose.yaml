@@ -1,0 +1,55 @@
+version: '3'
+services:
+  # neo4j:
+  #   image: neo4j:4.0.3
+  #   hostname: neo4j
+  #   container_name: neo4j
+  #   ports:
+  #     - "7474:7474"
+  #     - "7687:7687"
+  #   depends_on:
+  #     - kafka
+  #   volumes:
+  #     - ./neo4j/plugins:/plugins
+  #   environment:
+  #     NEO4J_AUTH: neo4j/streams
+  #     NEO4J_dbms_logs_debug_level: DEBUG
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "12181:12181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 12181
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "6667:6667"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:12181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:6667
+
+  # redis:
+  #   image: "redis:alpine"
+  #   hostname: redis
+  #   container_name: redis
+  #   command: redis-server --requirepass sOmE_sEcUrE_pAsS
+  #   ports:
+  #    - "6379:6379"
+  #   depends_on:
+  #     - kafka
+  #   volumes:
+  #    - $PWD/redis-data:/var/lib/redis
+  #    - $PWD/redis.conf:/usr/local/etc/redis/redis.conf
+  #   environment:
+  #    - REDIS_REPLICATION_MODE=master
+
+
