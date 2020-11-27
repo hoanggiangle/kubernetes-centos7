@@ -1,0 +1,7 @@
+docker run -it --net=kafka_default  -p 9002:9000 -e -KAFKA_BROKERCONNECT="172.18.0.3:6667" obsidiandynamics/kafdrop
+
+
+/bin/kafka-console-producer --broker-list localhost:6667 --topic services.product_flat < product_flat.txt
+
+
+/bin/kafka-console-consumer --bootstrap-server   localhost:6667 --topic  services.product_flat --offset 0 --max-messages 2 --partition 0
